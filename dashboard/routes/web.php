@@ -62,7 +62,7 @@ Route::get('/verify_email{token}', [AuthController::class, 'verify_email'])->nam
 Route::middleware(['auth'])->group(function () {
     // Your protected routes go here
 
-    Route::get('/dashboard', [UserloggedinController::class, 'dashboard'])->name('dashboard');
+    Route::get('/user-dashboard', [UserloggedinController::class, 'user_dashboard'])->name('user-dashboard');
     Route::get('/profile', [UserloggedinController::class, 'profile'])->name('profile');
     Route::get('/copy_trade', [UserloggedinController::class, 'copy_trade'])->name('copy_trade');
 

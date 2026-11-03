@@ -93,13 +93,13 @@ class AuthController extends Controller
                 ]
             );
 
-            Mail::send('emails.welcome', ['user' => $user, 'otp' => $otp], function ($message) use ($user) {
-                $message->to($user->email)->subject('Account Created');
-            });
+            // Mail::send('emails.welcome', ['user' => $user, 'otp' => $otp], function ($message) use ($user) {
+            //     $message->to($user->email)->subject('Account Created');
+            // });
 
 
 
-            return redirect()->route('otp.form')->with('success', 'User registered successfully.');
+            return redirect()->route('login')->with('success', 'User registered successfully.');
         } catch (ValidationException $e) {
             return redirect()->back()->withErrors($e->errors())->withInput();
         } catch (QueryException $e) {
@@ -127,10 +127,10 @@ class AuthController extends Controller
 
 
                 // Check if the authenticated user has verified their OTP
-                if (Auth::user()->otp_verify === 'no') {
-                    // If OTP is not verified, redirect to the OTP verification page
-                    return redirect()->route('otp.form')->withErrors(['error' => 'Please verify your OTP before proceeding.']);
-                }
+                // if (Auth::user()->otp_verify === 'no') {
+                //     // If OTP is not verified, redirect to the OTP verification page
+                //     return redirect()->route('otp.form')->withErrors(['error' => 'Please verify your OTP before proceeding.']);
+                // }
 
                 // Check if the authenticated user is an admin
                 if (Auth::user()->role === 'admin') {
@@ -139,7 +139,7 @@ class AuthController extends Controller
                 }
 
                 // Redirect other authenticated users to the intended URL or a default dashboard route
-                return redirect()->intended('dashboard')->with('success', 'Login successful! Welcome to your dashboard.');
+                return redirect()->intended('user-dashboard')->with('success', 'Login successful! Welcome to your dashboard.');
             }
 
             // If authentication fails, add a custom error message

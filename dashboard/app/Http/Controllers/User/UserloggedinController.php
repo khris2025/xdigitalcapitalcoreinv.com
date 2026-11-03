@@ -28,7 +28,7 @@ use Illuminate\Support\Facades\Auth;
 class UserloggedinController extends Controller
 {
     //
-    public function dashboard()
+    public function user_dashboard()
     {
         $user = Auth::user(); // Fetch the authenticated user
         $userEmail = $user->email;

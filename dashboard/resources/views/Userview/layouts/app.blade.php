@@ -75,7 +75,7 @@
                <ul class="metismenu list-unstyled" id="side-menu">
                   <li class="menu-title" data-key="t-menu">Menu</li>
                   <li>
-                     <a href="{{ route('dashboard') }}">
+                     <a href="{{ route('user-dashboard') }}">
                      <i data-feather="home"></i>
                      <span data-key="t-dashboard">Dashboard</span>
                      </a>
