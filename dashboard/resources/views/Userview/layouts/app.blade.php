@@ -192,8 +192,8 @@
       });
    </script>
    <nav class="mobile-bottom-nav d-md-none">
-      <a href="{{ route('dashboard') }}"
-         class="{{ request()->routeIs('dashboard') ? 'active' : '' }}">
+      <a href="{{ route('user-dashboard') }}"
+         class="{{ request()->routeIs('user-dashboard') ? 'active' : '' }}">
          <i class="fa fa-home"></i>
          <span>Home</span>
       </a>
